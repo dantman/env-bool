@@ -5,10 +5,15 @@
   "keywords": [
     "bool",
     "boolean",
+    "coerce",
     "env",
     "environment",
     "type",
-    "val"
+    "val",
+    "value",
+    "var",
+    "variable",
+    "variables"
   ],
   "homepage": "https://github.com/bluelovers/env-bool#readme",
   "bugs": {
