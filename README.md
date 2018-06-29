@@ -95,6 +95,46 @@ function envBool(val, mode2: boolean = true)
       √ envBool: false, mode2 = false
       √ envVal: false
       √ envBool: false, mode2 = true
+    'NULL'
+      √ envBool: null, mode2 = false
+      √ envVal: null
+      √ envBool: false, mode2 = true
+    'UNDEFINED'
+      √ envBool: undefined, mode2 = false
+      √ envVal: undefined
+      √ envBool: false, mode2 = true
+    'TRUE'
+      √ envBool: true, mode2 = false
+      √ envVal: true
+      √ envBool: true, mode2 = true
+    'FALSE'
+      √ envBool: false, mode2 = false
+      √ envVal: false
+      √ envBool: false, mode2 = true
+    'YES'
+      √ envBool: true, mode2 = false
+      √ envVal: true
+      √ envBool: true, mode2 = true
+    'NO'
+      √ envBool: false, mode2 = false
+      √ envVal: false
+      √ envBool: false, mode2 = true
+    'ON'
+      √ envBool: true, mode2 = false
+      √ envVal: true
+      √ envBool: true, mode2 = true
+    'OFF'
+      √ envBool: false, mode2 = false
+      √ envVal: false
+      √ envBool: false, mode2 = true
+    'ENABLED'
+      √ envBool: true, mode2 = false
+      √ envVal: true
+      √ envBool: true, mode2 = true
+    'DISABLED'
+      √ envBool: false, mode2 = false
+      √ envVal: false
+      √ envBool: false, mode2 = true
     ''
       √ envBool: false, mode2 = false
       √ envVal: ''
