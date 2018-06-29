@@ -5,8 +5,8 @@
 export function envVal(val: undefined | 'undefined'): undefined
 export function envVal(val: null | 'null'): null
 export function envVal(val: boolean): boolean
-export function envVal(val: 'no'|'off'|'false'|'disabled'): false
-export function envVal(val: 'yes' | 'on'|'true'|'enabled'): true
+export function envVal(val: 'no' | 'off' | 'false' | 'disabled'): false
+export function envVal(val: 'yes' | 'on' | 'true' | 'enabled'): true
 export function envVal(val: '1'): 1
 export function envVal(val: '0'): 0
 export function envVal(val: number): number
@@ -74,15 +74,21 @@ export function envVal(val)
 export function envBool(val: undefined | 'undefined'): undefined
 export function envBool(val: null | 'null'): null
 export function envBool(val: boolean): boolean
-export function envBool(val: 'no'|'off'|'false'|'disabled'): false
-export function envBool(val: 'yes' | 'on'|'true'|'enabled'): true
+export function envBool(val: 'no' | 'off' | 'false' | 'disabled'): false
+export function envBool(val: 'yes' | 'on' | 'true' | 'enabled'): true
 export function envBool(val: '1'): 1
 export function envBool(val: '0'): 0
 export function envBool(val: number): number
-export function envBool<T>(val: T): T | number | boolean
-export function envBool(val)
+export function envBool<T>(val: T, mode2: true): number | boolean
+export function envBool<T>(val: T, mode2?: boolean): T | number | boolean
+export function envBool(val, mode2?: boolean)
 {
 	let v = envVal(val);
+
+	if (mode2)
+	{
+		return (v && (typeof v === 'number' || typeof v === 'boolean')) ? v : false;
+	}
 
 	return typeof v === 'string' ? false : v;
 }

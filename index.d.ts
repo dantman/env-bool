@@ -19,5 +19,6 @@ export declare function envBool(val: 'yes' | 'on' | 'true' | 'enabled'): true;
 export declare function envBool(val: '1'): 1;
 export declare function envBool(val: '0'): 0;
 export declare function envBool(val: number): number;
-export declare function envBool<T>(val: T): T | number | boolean;
+export declare function envBool<T>(val: T, mode2: true): number | boolean;
+export declare function envBool<T>(val: T, mode2?: boolean): T | number | boolean;
 export default envBool;

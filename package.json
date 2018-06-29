@@ -1,6 +1,6 @@
 {
   "name": "env-bool",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "env value to JS value, check env val is boolean or others",
   "keywords": [
     "bool",
