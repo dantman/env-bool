@@ -45,6 +45,17 @@ describe(relative(__filename), () =>
 		['enabled', true, true, true],
 		['disabled', false, false, false],
 
+		['NULL', null, null, false],
+		['UNDEFINED', undefined, undefined, false],
+		['TRUE', true, true, true],
+		['FALSE', false, false, false],
+		['YES', true, true, true],
+		['NO', false, false, false],
+		['ON', true, true, true],
+		['OFF', false, false, false],
+		['ENABLED', true, true, true],
+		['DISABLED', false, false, false],
+
 		['', false, '', false],
 		['\t', false, '\t', false],
 		[' ', false, ' ', false],
