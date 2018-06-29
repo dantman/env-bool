@@ -1,0 +1,20 @@
+{
+  "name": "env-bool",
+  "version": "1.0.0",
+  "description": "env value to JS value, check env val is boolean or others",
+  "keywords": [
+    "bool",
+    "boolean",
+    "env",
+    "environment",
+    "type",
+    "val"
+  ],
+  "license": "ISC",
+  "author": "",
+  "main": "index.js",
+  "scripts": {
+    "prepublishOnly": "npx sort-package-json & npm run test",
+    "test": "mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\""
+  }
+}
