@@ -81,13 +81,18 @@ export function envBool(val: '0'): 0
 export function envBool(val: number): number
 export function envBool<T>(val: T, mode2: true): number | boolean
 export function envBool<T>(val: T, mode2?: boolean): T | number | boolean
-export function envBool(val, mode2?: boolean)
+export function envBool(val, mode2: boolean = true)
 {
 	let v = envVal(val);
 
 	if (mode2)
 	{
-		return (v && (typeof v === 'number' || typeof v === 'boolean')) ? v : false;
+		let t = typeof v;
+
+		return (
+			t === 'number'
+			|| t === 'boolean'
+		) ? v : false;
 	}
 
 	return typeof v === 'string' ? false : v;

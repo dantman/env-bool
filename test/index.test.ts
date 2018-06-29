@@ -16,68 +16,72 @@ import { ITest } from 'mocha';
 // @ts-ignore
 describe(relative(__filename), () =>
 {
-	[
 
-		['1', 1, 1],
-		['0', 0, 0],
-		[1, 1, 1],
-		[0, 0, 0],
+	const tests = [
+		['1', 1, 1, 1],
+		['0', 0, 0, 0],
+		[1, 1, 1, 1],
+		[0, 0, 0, 0],
 
-		[null, null, null],
-		['null', null, null],
+		[null, null, null, false],
+		['null', null, null, false],
 
-		[undefined, undefined, undefined],
-		['undefined', undefined, undefined],
-		[void(0), undefined, undefined],
+		[undefined, undefined, undefined, false],
+		['undefined', undefined, undefined, false],
+		[void(0), undefined, undefined, false],
 
-		[true, true, true],
-		['true', true, true],
+		[true, true, true, true],
+		['true', true, true, true],
 
-		[false, false, false],
-		['false', false, false],
+		[false, false, false, false],
+		['false', false, false, false],
 
-		['yes', true, true],
-		['no', false, false],
+		['yes', true, true, true],
+		['no', false, false, false],
 
-		['on', true, true],
-		['off', false, false],
+		['on', true, true, true],
+		['off', false, false, false],
 
-		['enabled', true, true],
-		['disabled', false, false],
+		['enabled', true, true, true],
+		['disabled', false, false, false],
 
-		['', false, ''],
-		['\t', false, '\t'],
-		[' ', false, ' '],
-		['\n', false, '\n'],
+		['', false, '', false],
+		['\t', false, '\t', false],
+		[' ', false, ' ', false],
+		['\n', false, '\n', false],
 
-		['a', false, 'a'],
+		['a', false, 'a', false],
 
-		['099', false, '099'],
-		['99', 99, 99],
+		['099', false, '099', false],
+		['99', 99, 99, 99],
 
-		['099.9', false, '099.9'],
-		['99.9', 99.9, 99.9],
+		['099.9', false, '099.9', false],
+		['99.9', 99.9, 99.9, 99.9],
 
-		[-1, -1, -1],
-		['-1', -1, -1],
+		[-1, -1, -1, -1],
+		['-1', -1, -1, -1],
 
-		[-1.1, -1.1, -1.1],
-		['-1.1', -1.1, -1.1],
+		[-1.1, -1.1, -1.1, -1.1],
+		['-1.1', -1.1, -1.1, -1.1],
 
-		['0x11', false, '0x11'],
-		['0b11', false, '0b11'],
-		['0o11', false, '0o11'],
-		['100a', false, '100a'],
+		['0x11', false, '0x11', false],
+		['0b11', false, '0b11', false],
+		['0o11', false, '0o11', false],
+		['100a', false, '100a', false],
 
-		['\u0001', false, '\u0001'],
+		['\u0001', false, '\u0001', false],
 
-	].forEach(function ([input, expectedBool, expectedVal])
+		[{}, {}, {}, false],
+		[[], [], [], false],
+	];
+
+	tests.forEach(function ([input, expectedBool, expectedVal, expectedBool2])
 	{
 		describe(`${util.inspect(input)}`, () =>
 		{
-			it(`envBool: ${util.inspect(expectedBool)}`, function ()
+			it(`envBool: ${util.inspect(expectedBool)}, mode2 = false`, function ()
 			{
-				let actual = envBool(input);
+				let actual = envBool(input, false);
 				expect(actual).to.be.deep.equal(expectedBool);
 			});
 
@@ -86,6 +90,20 @@ describe(relative(__filename), () =>
 				let actual = envVal(input);
 				expect(actual).to.be.deep.equal(expectedVal);
 			});
+
+			if (typeof expectedBool2 !== 'undefined')
+			{
+				it(`envBool: ${util.inspect(expectedBool2)}, mode2 = true`, function ()
+				{
+					let actual = envBool(input, true);
+					expect(actual).to.be.deep.equal(expectedBool2);
+
+					// ---------------
+
+					let actual2 = envBool(input);
+					expect(actual2).to.be.deep.equal(expectedBool2);
+				});
+			}
 		});
 	});
 });

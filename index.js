@@ -45,10 +45,12 @@ function envVal(val) {
     return val;
 }
 exports.envVal = envVal;
-function envBool(val, mode2) {
+function envBool(val, mode2 = true) {
     let v = envVal(val);
     if (mode2) {
-        return (v && (typeof v === 'number' || typeof v === 'boolean')) ? v : false;
+        let t = typeof v;
+        return (t === 'number'
+            || t === 'boolean') ? v : false;
     }
     return typeof v === 'string' ? false : v;
 }

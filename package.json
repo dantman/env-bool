@@ -1,6 +1,6 @@
 {
   "name": "env-bool",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "env value to JS value, check env val is boolean or others",
   "keywords": [
     "bool",
@@ -31,6 +31,6 @@
   },
   "scripts": {
     "prepublishOnly": "npx sort-package-json & npm run test",
-    "test": "mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\""
+    "test": "npx mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\""
   }
 }
