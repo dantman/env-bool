@@ -53,3 +53,4 @@ exports.envBool = envBool;
 exports.default = envBool;
 // @ts-ignore
 exports = Object.assign(envBool, exports);
+Object.defineProperty(exports, "__esModule", { value: true });

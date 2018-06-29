@@ -10,9 +10,20 @@
     "type",
     "val"
   ],
+  "homepage": "https://github.com/bluelovers/env-bool#readme",
+  "bugs": {
+    "url": "https://github.com/bluelovers/env-bool/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluelovers/env-bool.git"
+  },
   "license": "ISC",
   "author": "",
   "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
   "scripts": {
     "prepublishOnly": "npx sort-package-json & npm run test",
     "test": "mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\""
